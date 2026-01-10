@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUCAS Token - Student-Created Cryptocurrency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 30px 0;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid #ffd700;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 20px 0;
+            font-weight: 600;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .cta-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .tokenomics {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 237, 78, 0.1));
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-box h4 {
+            font-size: 36px;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .social-section {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 50px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-card:hover {
+            background: rgba(29, 161, 242, 0.3);
+            transform: translateY(-5px);
+            border-color: #1da1f2;
+        }
+
+        .social-icon {
+            font-size: 32px;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+        }
+
+        .roadmap {
+            display: grid;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .roadmap-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .roadmap-item h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .university-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 100, 0, 0.3);
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: 2px solid #4ade80;
+            margin-top: 20px;
+        }
+
+        .university-badge::before {
+            content: "🎓";
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">LUCAS Token</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#tokenomics">Tokenomics</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#social">Social</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>LUCAS Token</h1>
+            <p>A Student-Led Cryptocurrency Project</p>
+            <div class="badge">🎓 Created by a Student Developer</div>
+            <div class="university-badge">
+                Federal University of Pará, Brazil
+            </div>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Buy LUCAS</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About LUCAS Token</h2>
+            <div class="about-content">
+                <div class="card">
+                    <h3>🎓 Student Innovation</h3>
+                    <p>LUCAS Token is an educational cryptocurrency project created by a computer science student at the Federal University of Pará (UFPA), Brazil. This project represents the intersection of academic learning and real-world blockchain technology.</p>
+                </div>
+                <div class="card">
+                    <h3>🔗 Built on Polygon</h3>
+                    <p>Deployed on the Polygon network for fast, low-cost transactions. LUCAS leverages the efficiency of Layer 2 scaling to provide an accessible entry point into the cryptocurrency ecosystem.</p>
+                </div>
+                <div class="card">
+                    <h3>🌟 Community-Driven</h3>
+                    <p>Join a growing community of supporters who believe in student-led innovation and the democratization of blockchain technology. Every holder is part of our educational journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics" class="tokenomics">
+        <div class="container">
+            <h2 class="section-title">Tokenomics</h2>
+            <div class="stats">
+                <div class="stat-box">
+                    <h4>LUCAS</h4>
+                    <p>Token Symbol</p>
+                </div>
+                <div class="stat-box">
+                    <h4>ERC-20</h4>
+                    <p>Token Standard</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Polygon</h4>
+                    <p>Network</p>
+                </div>
+                <div class="stat-box">
+                    <h4>18</h4>
+                    <p>Decimals</p>
+                </div>
+            </div>
+            <div class="about-content" style="margin-top: 60px;">
+                <div class="card">
+                    <h3>💎 Total Supply</h3>
+                    <p>Fixed supply with no inflation. Transparent tokenomics designed for long-term sustainability and community growth.</p>
+                </div>
+                <div class="card">
+                    <h3>🔥 Burn Mechanism</h3>
+                    <p>Built-in burn function allows for deflationary pressure, increasing scarcity over time and potentially benefiting long-term holders.</p>
+                </div>
+                <div class="card">
+                    <h3>💧 Liquidity Pool</h3>
+                    <p>LUCAS/POL pair available on Uniswap and QuickSwap for easy trading with minimal fees on the Polygon network.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <h2 class="section-title">Roadmap</h2>
+            <div class="roadmap">
+                <div class="roadmap-item">
+                    <h4>Phase 1: Foundation ✅</h4>
+                    <p>Smart contract development, security testing, and deployment on Polygon network. Token creation and initial distribution framework.</p>
+                </div>
+                <div class="roadmap-item">
+                    <h4>Phase 2: Launch 🚀</h4>
+                    <p>Liquidity pool creation on DEX platforms, website launch, and community building through social media channels.</p>
+                </div>
+                <div class="roadmap-item">
+                    <h4>Phase 3: Growth 📈</h4>
+                    <p>Expand community presence, pursue additional exchange listings, and develop educational content about blockchain technology.</p>
+                </div>
+                <div class="roadmap-item">
+                    <h4>Phase 4: Utility 🛠️</h4>
+                    <p>Explore real-world use cases, partnerships with student organizations, and integration with educational platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="social" class="social-section">
+        <div class="container">
+            <h2 class="section-title">Join Our Community</h2>
+            <p style="text-align: center; font-size: 18px; opacity: 0.9; margin-bottom: 20px;">
+                Follow our journey and stay updated with the latest news
+            </p>
+            <div class="social-links">
+                <a href="https://x.com/TokenLUCAS" target="_blank" class="social-card">
+                    <span class="social-icon">𝕏</span>
+                    <div>
+                        <div style="font-weight: 600;">Twitter / X</div>
+                        <div style="opacity: 0.8; font-size: 14px;">@TokenLUCAS</div>
+                    </div>
+                </a>
+            </div>
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: rgba(255, 215, 0, 0.1); border-radius: 15px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                <h3 style="color: #ffd700; margin-bottom: 15px;">Student Developer</h3>
+                <p>This project is created and maintained by a computer science student at the Federal University of Pará (UFPA), located in Castanhal, Pará, Brazil. It serves as both an educational endeavor and a practical application of blockchain technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 LUCAS Token. A student cryptocurrency project from Federal University of Pará, Brazil.</p>
+            <p style="margin-top: 10px; opacity: 0.7; font-size: 14px;">Educational project - Always DYOR (Do Your Own Research)</p>
+        </div>
+    </footer>
+</body>
+</html>
