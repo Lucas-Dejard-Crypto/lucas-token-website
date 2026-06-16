@@ -1,6 +1,6 @@
 # 📦 [Nome do Projeto]
 
-> Uma breve descrição de 1 a 2 frases sobre o que este projeto faz e qual problema de negócio ele resolve.
+> Uma breve ATUALIZAÇÃO na descrição de 1 a 2 frases sobre o que este projeto faz e qual problema de negócio ele resolve.
 
 ---
 
