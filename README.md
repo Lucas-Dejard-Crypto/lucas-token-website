@@ -7,8 +7,8 @@
 ## 🛠 Tecnologias Utilizadas
 
 Liste as principais linguagens, frameworks e bibliotecas do repositório.
-* Tecnologia 1 (ex: React, React Native, Node.js)
-* Tecnologia 2 (ex: Jest, Cypress, Appium)
+* React, React Native V2.3
+* API w/ Jest
 * Tecnologia 3 (ex: PostgreSQL, MongoDB)
 
 ## ⚙️ Pré-requisitos
