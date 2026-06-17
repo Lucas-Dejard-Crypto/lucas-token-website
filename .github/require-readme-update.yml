@@ -1,0 +1,34 @@
+# Isso garante que nenhum PR é mesclado na branch principal sem
+# alterar o README.md. É o equivalente prático e sustentável de
+# "forçar alteração a cada commit": o ponto de verdade é o merge,
+# não cada commit individual (que pode ser squashado/amendado e
+# não é controlável de forma confiável pelo GitHub.com).
+
+name: Require README Update
+
+on:
+  pull_request:
+    branches: [main, master]
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  check-readme-changed:
+    name: Verifica atualização do README
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compara diff com a branch base
+        run: |
+          git fetch origin "${{ github.base_ref }}"
+          CHANGED=$(git diff --name-only "origin/${{ github.base_ref }}"...HEAD)
+          echo "Arquivos alterados neste PR:"
+          echo "$CHANGED"
+
+          if ! echo "$CHANGED" | grep -qiE '^readme\.(md|rst|txt)$|^readme$'; then
+            echo "::error::Este PR não contém alterações no README. É obrigatório atualizar pelo menos uma seção antes do merge."
+            exit 1
+          fi
