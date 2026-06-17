@@ -1,13 +1,13 @@
-# 📦 [Nome do Projeto]
+# 📦 [Lucas Token - Website]
 
-> Uma breve descrição de 1 a 2 frases sobre o que este projeto faz e qual problema de negócio ele resolve.
+> Uma breve ATUALIZAÇÂO na descrição de 1 a 2 frases sobre o que este projeto faz e qual problema de negócio ele resolve.
 
 ---
 
 ## 🛠 Tecnologias Utilizadas
 
 Liste as principais linguagens, frameworks e bibliotecas do repositório.
-* Tecnologia 1 (ex: React, React Native, Node.js)
+* Tecnologia 1 React V1.6, React Native V2.3
 * Tecnologia 2 (ex: Jest, Cypress, Appium)
 * Tecnologia 3 (ex: PostgreSQL, MongoDB)
 
